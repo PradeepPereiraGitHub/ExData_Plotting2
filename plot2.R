@@ -9,7 +9,7 @@ NEIBaltimore<-NEI[NEI$fips== "24510",]
 NEITotalsByYearBaltimore <- aggregate(Emissions ~ year,NEIBaltimore,sum)
 
 #Using the base plotting system, make a plot showing the total PM2.5 emissions
-#from all sources for each of the years 1999, 2002, 2005, and 2008.
+#for Baltimore for each of the years 1999, 2002, 2005, and 2008.
 
 #Save the plot to a png file
 
@@ -19,6 +19,5 @@ plot(NEITotalsByYearBaltimore,pch = 17,col = "red", type="b",
      xlab="Year", ylab="Total PM2.5 Emissions(tons)", 
      main="Total PM2.5 Emissions In Baltimore By Year"
 )
-
 
 dev.off()
