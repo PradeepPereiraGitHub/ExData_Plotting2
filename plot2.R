@@ -13,7 +13,7 @@ NEITotalsByYearBaltimore <- aggregate(Emissions ~ year,NEIBaltimore,sum)
 
 #Save the plot to a png file
 
-png("./GitHub/ExData_Plotting2/plot2.png",width=480,height=480,units="px",bg="transparent")
+png("./GitHub/ExData_Plotting2/plot2.png",width=480,height=480,units="px",bg="white")
 
 plot(NEITotalsByYearBaltimore,pch = 17,col = "red", type="b", 
      xlab="Year", ylab="Total PM2.5 Emissions(tons)", 

@@ -10,7 +10,7 @@ NEITotalsByYear <- aggregate(Emissions ~ year,NEI,sum)
 
 #Save the plot to a png file
 
-png("./GitHub/ExData_Plotting2/plot1.png",width=480,height=480,units="px",bg="transparent")
+png("./GitHub/ExData_Plotting2/plot1.png",width=480,height=480,units="px",bg="white")
 
 plot(NEITotalsByYear,pch = 17,col = "blue", type="b", 
      xlab="Year", ylab="Total PM2.5 Emissions(tons)", 
