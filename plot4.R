@@ -6,18 +6,18 @@
 # NEIBaltimore<-NEI[NEI$fips == "24510",]
 # 
 # 
-# Short.Name, EI.Sector, SEC.Level.Three, SEC.Level.Four
+# Short.Name, EI.Sector, SCC.Level.Three, SCC.Level.Four
 
 #Locate all the occurences of the word 'coal' across the appropriate columns
 #from the SCC table, get the rows that return true
 # Short.Name.coal<-grepl("coal", SCC$Short.Name, ignore.case=TRUE)
 # EI.Sector.coal<-grepl("coal", SCC$EI.Sector, ignore.case=TRUE)
-# SEC.Level.Three.coal<-grepl("coal", SCC$SCC.Level.Three, ignore.case=TRUE)
-# SEC.Level.Four.coal<-grepl("coal", SCC$SCC.Level.Four, ignore.case=TRUE)
+# SCC.Level.Three.coal<-grepl("coal", SCC$SCC.Level.Three, ignore.case=TRUE)
+# SCC.Level.Four.coal<-grepl("coal", SCC$SCC.Level.Four, ignore.case=TRUE)
 # 
 # #Add all these ocurrences of rows together where a logical match for 'coal' 
 # #occurs in all of thes above columns
-# All.coal.Occ.In.SCC <- Short.Name.coal & EI.Sector.coal & SEC.Level.Three.coal & SEC.Level.Four.coal
+# All.coal.Occ.In.SCC <- Short.Name.coal & EI.Sector.coal & SCC.Level.Three.coal & SCC.Level.Four.coal
 # 
 # #Get all 'SCC' column values from the SCC table that match these logical occurences
 # SCC_All_Coal <- SCC[All.coal.Occ.In.SCC,]$SCC
@@ -31,7 +31,7 @@
 #occurence of the word 'coal' (case insensitive). 
 #We have selected only 4 relevant columns as mentioned below - after having a 
 #visual check in the SCC table
-#Short.Name, EI.Sector, SEC.Level.Three, SEC.Level.Four
+#Short.Name, EI.Sector, SCC.Level.Three, SCC.Level.Four
 
 SCC_All_Coal <- subset(SCC, 
                      grepl("coal", Short.Name, ignore.case=TRUE) 

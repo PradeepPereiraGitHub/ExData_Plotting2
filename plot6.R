@@ -2,8 +2,8 @@
 # NEI <- readRDS("./exdata_data_NEI_data/summarySCC_PM25.rds")
 # SCC <- readRDS("./exdata_data_NEI_data/Source_Classification_Code.rds")
 # 
-# #Subset just the data for Baltimore
-#NEIBaltimore<-NEI[NEI$fips == "24510",]
+# #Subset just the data for LA
+NEILA<-NEI[NEI$fips == "06037" & NEI$type=="ON-ROAD",]
 # 
 # 
 # Short.Name, EI.Sector, SCC.Level.Three, SCC.Level.Four
@@ -38,33 +38,33 @@ SCC_All_On_Road <- SCC[SCC$Data.Category == "Onroad",]
 #Subset the rows from the NEI dataset whose SCC column values match those of the
 #SCC data SC colum values for the category 'Onroad'
 #NEI_All_On_Road <- subset(NEI, SCC %in% SCC_All_On_Road$SCC)
-NEIBaltimore_On_Road <- subset(NEIBaltimore, SCC %in% SCC_All_On_Road$SCC)
+NEILA_On_Road <- subset(NEILA, SCC %in% SCC_All_On_Road$SCC)
 
 #Arrange it by SCC num
 #NEI_All_On_Road <- arrange(NEI_All_On_Road,SCC)
-NEIBaltimore_On_Road <- arrange(NEIBaltimore_On_Road,SCC)
+NEILA_On_Road <- arrange(NEILA_On_Road,SCC)
 
 #Aggregate emissions by year and sum on the emissions
 #NEI_All_On_Road_TotalsByYear <- aggregate(Emissions ~ year,NEI_All_On_Road,sum)
-NEIBaltimore_On_Road_TotalsByYear <- aggregate(Emissions ~ year,NEIBaltimore_On_Road,sum)
+NEILA_On_Road_TotalsByYear <- aggregate(Emissions ~ year,NEILA_On_Road,sum)
  
 
-png("./GitHub/ExData_Plotting2/plot5baseplot.png",,width=480,height=480,units="px",bg="white")
+png("./GitHub/ExData_Plotting2/plot6baseplot.png",,width=480,height=480,units="px",bg="white")
 
-plot(NEIBaltimore_On_Road_TotalsByYear,pch = 17,col = "blue", type="b", 
+plot(NEILA_On_Road_TotalsByYear,pch = 17,col = "blue", type="b", 
      xlab="Year", ylab="Total PM2.5 On Road Based Emissions(tons)", 
-     main="Total Vehicular PM2.5 Emissions In Baltimore By Year"
+     main="Total Vehicular PM2.5 Emissions In LA By Year"
 )
 dev.off()
 
-png("./GitHub/ExData_Plotting2/plot5ggplot.png",,width=480,height=480,units="px",bg="white")
+png("./GitHub/ExData_Plotting2/plot6ggplot.png",,width=480,height=480,units="px",bg="white")
 
-myggplot <- ggplot(NEIBaltimore_On_Road,aes(factor(year),Emissions/10^2,fill=type)) + 
+myggplot <- ggplot(NEILA_On_Road,aes(factor(year),Emissions/10^2,fill=type)) + 
         geom_bar(stat="identity") + 
         theme_bw(base_size=14) + guides(fill=FALSE)+ 
         facet_grid(type~.,scales = "free_x",space="free") +  
         labs(x="Year", y="Total PM2.5 On Road Based Emissions(10^2 tons)") +  
-        labs(title="Total Vehicular PM2.5 Emissions In Baltimore By Year") 
+        labs(title="Total Vehicular PM2.5 Emissions In LA By Year") 
 print(myggplot)
 
 dev.off()
