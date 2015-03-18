@@ -49,7 +49,7 @@ NEIBaltimore_On_Road <- arrange(NEIBaltimore_On_Road,SCC)
 NEIBaltimore_On_Road_TotalsByYear <- aggregate(Emissions ~ year,NEIBaltimore_On_Road,sum)
  
 
-png("./GitHub/ExData_Plotting2/plot5baseplot.png",,width=480,height=480,units="px",bg="white")
+png("./GitHub/ExData_Plotting2/plot5baseplot.png",width=480,height=480,units="px",bg="white")
 
 plot(NEIBaltimore_On_Road_TotalsByYear,pch = 17,col = "blue", type="b", 
      xlab="Year", ylab="Total PM2.5 On Road Based Emissions(tons)", 

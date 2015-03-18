@@ -59,7 +59,7 @@ plot(NEI_All_Coal_TotalsByYear,pch = 17,col = "blue", type="b",
 )
 dev.off()
 
-png("./GitHub/ExData_Plotting2/plot4ggplot.png",,width=480,height=480,units="px",bg="white")
+png("./GitHub/ExData_Plotting2/plot4ggplot.png",width=480,height=480,units="px",bg="white")
 
 myggplot <- ggplot(NEI_All_Coal,aes(factor(year),Emissions/10^5,fill=type)) + 
         geom_bar(stat="identity") + 
