@@ -5,15 +5,19 @@ SCC <- readRDS("./exdata_data_NEI_data/Source_Classification_Code.rds")
 #Subset just the data for Baltimore
 NEIBaltimore<-NEI[NEI$fips == "24510",]
 
-#ForVisual verification
+#For Visual verification
 #NEITotalsByYearBaltimore <- aggregate(Emissions ~ year,NEIBaltimore,sum)
+
+#WORKS!!!!!!!!!
 #deep <- aggregate(Emissions ~ year + type, NEIBaltimore, sum)
+#arrange(deep,year)
+
 #deep1 <- aggregate(Emissions ~ year, NEIBaltimore, sum)
 
 
 #Using the ggplot2 system, make a plot showing the total PM2.5 emissions
 #for Baltimore by source type for the years 1999, 2002, 2005, and 2008.
-
+library(ggplot2)
 #Save the plot to a png file
 
 png("./GitHub/ExData_Plotting2/plot3.png",,width=480,height=480,units="px",bg="white")
