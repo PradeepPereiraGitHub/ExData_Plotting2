@@ -1,6 +1,6 @@
 #Read the data in
-# NEI <- readRDS("./exdata_data_NEI_data/summarySCC_PM25.rds")
-# SCC <- readRDS("./exdata_data_NEI_data/Source_Classification_Code.rds")
+NEI <- readRDS("./exdata_data_NEI_data/summarySCC_PM25.rds")
+SCC <- readRDS("./exdata_data_NEI_data/Source_Classification_Code.rds")
 
 #Subset just the data for Baltimore and LA
 NEIBaltimore<-NEI[NEI$fips == "24510" & NEI$type=="ON-ROAD",]
